@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test 1</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body style="background-image: url(/image/pexels-photo-132197.jpeg);">
+  <div class="container-fluid">
+    <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Product</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+  </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-9">
+          <select class="form-control" id="a"
+            style="width: 418px; height: 40px; position: relative; top: 48px; margin-left: 25%;">
+            <option>Select The Product</option>
+            <option>Table</option>
+            <option>Chair</option>
+            <option>Computer</option>
+          </select>
+          <button class="btn btn-danger" id="Search_value" onclick="leastPriceWithThisName(a.value)"
+            style="position: relative;margin-left: 71%;top: 10px;">Search</button>
+        </div>
+        <div class="col-md-3">
+          <div class="w3-container">
+            <span class="cart_quantity" id="number" style="position: relative; left: 60px; font-size: 20px;">0</span>
+            <div class="w3-dropdown-hover" style="position: relative; top: 38px;">
+              <button class="w3-button w3-black fa fa-shopping-cart" style="font-size: 30px;"></button>
+              <div class="w3-dropdown-content w3-bar-block w3-border">
+                <div class="card" style="width: 18rem; margin-left: 10px;">
+                  <div class="card-body">
+                    <h5 class="card-title" id="card-title" style="position: relative; left: 43px; color: blue;"></h5>
+                    <label style="position: relative; left: 43px; color: red;">Mimimum Price</label>
+                    <p class="card-text" id="Min_Price">Min_Price : </p>
+                    <label style="position: relative; left: 43px; color: red;">Maximum Price</label>
+                    <p class="card-text" id="Max_Price">Max_Price : </p>
+                    <label for="quantity" style="color: red; position: relative; left: 30px;">least Discount
+                      Price</label>
+                    <p class="card-text" id="least_Discount">least_Discount_Price : </p>
+                    <label for="quantity" style="color: red;">Quantity</label>
+                    <input type="number" id="quantity" name="quantity" min="1" max="10000">
+                    <label style="position: relative; left: 63px; color: red;">Total Price</label>
+                    <p class="card-text" id="Total_Price">Total_Price : </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <table class="table" style="margin-top: 90px;">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th>Least_Price</th>
+            <th>Max_Price</th>
+            <th>Least_Price 5% Discount</th>
+            <th>Max_Price 15% Discount</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <td id="name"></td>
+          <td id="demo"></td>
+          <td id="demo1"></td>
+          <td id="demo2"></td>
+          <td id="demo3"></td>
+          <td id="demo5"></td>
+          <td id="demo4"></td>
+        </tbody>
+      </table>
+    </div>
+    <div class="container-fluid">
+      <button id="add_to_cart_button" disabled>Add To Cart</button>
+    </div>
+  </div>
+  <script src="/Test1.js"></script>
+</body>
+
+</html>
